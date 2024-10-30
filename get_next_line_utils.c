@@ -6,7 +6,7 @@
 /*   By: mosmont <mosmont@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:08:56 by mosmont           #+#    #+#             */
-/*   Updated: 2024/10/30 18:01:03 by mosmont          ###   ########.fr       */
+/*   Updated: 2024/10/30 23:28:33 by mosmont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ size_t	eof_index(char *string)
 	i = 0;
 	while (string[i] != '\0' && string[i] != '\n')
 		i++;
+	if (string[i] == '\n')
+		i++;
 	return (i);
 }
 
@@ -57,11 +59,13 @@ char	*free_and_reset(char *string1, char *final_string)
 		free(string1);
 		string1 = NULL;
 	}
-	if (final_string && final_string[0] == '\0')
+	if (final_string)
 	{
-		free(final_string);
-		final_string = NULL;
-		return (NULL);
+		if (final_string[0] == '\0')
+		{
+			free(final_string);
+			final_string = NULL;
+		}
 	}
 	return (final_string);
 }
@@ -73,23 +77,23 @@ char	*ft_strjoin(char *string1, char *string2)
 	size_t	j;
 
 	final_string = malloc((eof_index(string1) + eof_index(string2) + 1) * 1);
-	if (final_string == NULL)
-		return (NULL);
-	i = 0;
-	while (string1 && string1[i])
+	if (final_string != NULL)
 	{
-		final_string[i] = string1[i];
-		i++;
-	}
-	j = 0;
-	while (string2 && string2[j] && string2[j] != '\n')
-	{
-		final_string[i + j] = string2[j];
-		j++;
-	}
-	if (string2[j] == '\n')
-		final_string[i + j] = '\n';
-	else
+		i = 0;
+		while (string1 && string1[i])
+		{
+			final_string[i] = string1[i];
+			i++;
+		}
+		j = 0;
+		while (string2 && string2[j] && string2[j] != '\n')
+		{
+			final_string[i + j] = string2[j];
+			j++;
+		}
+		if (string2[j] == '\n')
+			final_string[i + j++] = '\n';
 		final_string[i + j] = '\0';
+	}
 	return (free_and_reset(string1, final_string));
 }

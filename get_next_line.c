@@ -6,7 +6,7 @@
 /*   By: mosmont <mosmont@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 13:57:09 by mosmont           #+#    #+#             */
-/*   Updated: 2024/10/30 18:02:45 by mosmont          ###   ########.fr       */
+/*   Updated: 2024/10/30 23:23:33 by mosmont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
+	{
+		buffer[0] = '\0';
 		return (NULL);
+	}
 	line = malloc(1);
 	if (line == NULL)
 		return (NULL);
@@ -86,20 +89,20 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	int		fd;
-	char	*line;
-	int		i;
+// int	main(void)
+// {
+// 	int		fd;
+// 	char	*line;
+// 	int		i;
 
-	fd = open("empty.txt", O_RDONLY);
-	i = 1;
-	while ((line) != NULL)
-	{
-		line = get_next_line(fd);
-		printf("%d: %s", i, line);
-		free(line);
-		i++;
-	}
-	close(fd);
-}
+// 	fd = open("giant_line.txt", O_RDONLY);
+// 	i = 1;
+// 	while ((line) != NULL)
+// 	{
+// 		line = get_next_line(fd);
+// 		printf("%d: %s", i, line);
+// 		free(line);
+// 		i++;
+// 	}
+// 	close(fd);
+// }
