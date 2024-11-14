@@ -6,7 +6,7 @@
 /*   By: mosmont <mosmont@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 13:57:09 by mosmont           #+#    #+#             */
-/*   Updated: 2024/10/30 23:23:33 by mosmont          ###   ########.fr       */
+/*   Updated: 2024/11/14 16:36:34 by mosmont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strdup(char *s)
 
 char	*read_line(int fd, char *buffer, char *line)
 {
-	size_t	bytes_read;
+	int	bytes_read;
 
 	bytes_read = 1;
 	if (check_eof(buffer) == 1)
