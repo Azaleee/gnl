@@ -6,7 +6,7 @@
 /*   By: mosmont <mosmont@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:08:56 by mosmont           #+#    #+#             */
-/*   Updated: 2024/10/30 23:28:33 by mosmont          ###   ########.fr       */
+/*   Updated: 2024/11/18 16:26:41 by mosmont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,6 @@ size_t	eof_index(char *string)
 	while (string[i] != '\0' && string[i] != '\n')
 		i++;
 	if (string[i] == '\n')
-		i++;
-	return (i);
-}
-
-size_t	ft_strlen(char *string)
-{
-	size_t	i;
-
-	if (string == NULL)
-		return (0);
-	i = 0;
-	while (string[i])
 		i++;
 	return (i);
 }

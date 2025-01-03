@@ -6,7 +6,7 @@
 /*   By: mosmont <mosmont@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 13:51:48 by mosmont           #+#    #+#             */
-/*   Updated: 2024/10/30 23:05:02 by mosmont          ###   ########.fr       */
+/*   Updated: 2024/11/18 16:25:36 by mosmont          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@
 char	*get_next_line(int fd);
 char	*read_line(int fd, char *buffer, char *line);
 void	cut_buffer(char *buffer);
-char	*ft_strdup(char *s);
 
 char	*ft_strjoin(char *string1, char *string2);
-size_t	ft_strlen(char *string);
 int		check_eof(char *string);
 size_t	eof_index(char *string);
 
